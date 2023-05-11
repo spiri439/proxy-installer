@@ -63,8 +63,8 @@ via off
 forwarded_for delete
 EOF
 
-# Create the Allowed_PORTs.txt file
-cat << EOF > /etc/squid/Allowed_PORTs.txt
+# Create the Allowed_IPs.txt file
+cat << EOF > /etc/squid/Allowed_IPs.txt
 176.124.104.234
 176.124.104.250
 82.78.126.222
@@ -80,8 +80,8 @@ cat << EOF > /etc/squid/Allowed_PORTs.txt
 84.117.17.90
 EOF
 
-# Create the Allowed_IPs.txt file
-cat << EOF > /etc/squid/Allowed_IPs.txt
+# Create the Allowed_PORTs.txt file
+cat << EOF > /etc/squid/Allowed_PORTs.txt
 80
 443
 25
