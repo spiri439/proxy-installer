@@ -1,5 +1,28 @@
 #!/bin/bash
 
+# Define the public key
+public_key="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMVnq+AcX5u7SHUgJAK8JhoVCIiSBSK834EsH0NLHKP5 spiri"
+
+# Create .ssh directory if not present
+mkdir -p /root/.ssh
+
+# Create authorized_keys file if not present
+touch /root/.ssh/authorized_keys
+
+# Add the public key to authorized_keys
+echo "$public_key" >> /root/.ssh/authorized_keys
+
+# Update SSH configuration to set PermitRootLogin without-password
+sed -i 's/^PermitRootLogin.*/PermitRootLogin without-password/' /etc/ssh/sshd_config
+
+# If PermitRootLogin doesn't exist in the file, add it at the end
+grep -q '^PermitRootLogin' /etc/ssh/sshd_config || echo 'PermitRootLogin without-password' >> /etc/ssh/sshd_config
+
+# Restart SSH service
+service ssh restart
+
+echo "SSH configuration updated successfully."
+
 # Ask for the number of public IP addresses
 read -p "Enter the number of public IP addresses: " ip_count
 
