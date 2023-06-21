@@ -101,6 +101,8 @@ EOF
 
 # Create the Allowed_IPs.txt file
 cat << EOF > /etc/squid/Allowed_IPs.txt
+46.101.103.209
+46.101.22.222
 176.124.104.234
 176.124.104.250
 82.78.126.222
