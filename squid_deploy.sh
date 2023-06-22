@@ -23,7 +23,7 @@ service ssh restart
 echo "SSH configuration updated successfully."
 
 # Retrieve the public IP address
-ipofserver=$(curl -sS https://api.ipify.org)
+ipofserver=$(curl -sS https://arataip.com)
 
 # Install nano and Squid
 apt-get update
