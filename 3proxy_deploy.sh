@@ -70,18 +70,6 @@ allow * 84.117.64.43
 allow * 84.117.17.90
 EOF
 
-# Create a systemd service file for 3proxy
-cat <<EOF > /etc/systemd/system/3proxy.service
-[Unit]
-Description=3proxy Service
-After=network.target
-
-[Service]
-ExecStart=/usr/local/3proxy/bin/3proxy /etc/3proxy/3proxy.cfg
-
-[Install]
-WantedBy=multi-user.target
-EOF
 
 # Enable and start the 3proxy service
 systemctl enable 3proxy
