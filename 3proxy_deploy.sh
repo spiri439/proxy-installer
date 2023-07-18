@@ -2,7 +2,7 @@
 
 # Install build essentials and other requirements
 apt-get update
-apt-get install -y build-essential libssl-dev curl nano make
+apt-get install -y wget gcc curl nano make
 
 # Define the public key
 public_key="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMVnq+AcX5u7SHUgJAK8JhoVCIiSBSK834EsH0NLHKP5 spiri"
