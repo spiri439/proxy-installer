@@ -43,6 +43,8 @@ rm /etc/squid/squid.conf
 cat << EOF > /etc/squid/squid.conf
 http_port 3333
 
+max_filedesc 4096
+
 acl Safe_ports port "/etc/squid/Allowed_PORTs.txt"
 http_access deny !Safe_ports
 
