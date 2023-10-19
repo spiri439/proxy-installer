@@ -64,14 +64,22 @@ EOF
     cat <<EOF > /etc/systemd/system/3proxy-$ip.service
 [Unit]
 Description=3proxy for IP $ip
+Documentation=man:3proxy(1)
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/3proxy /etc/3proxy/3proxy-$ip.cfg
-Restart=always
+Environment=CONFIGFILE=/etc/3proxy/3proxy-$ip.cfg
+ExecStart=/bin/3proxy ${CONFIGFILE}
+ExecReload=/bin/kill -SIGUSR1 $MAINPID
+KillMode=process
+Restart=on-failure
+RestartSec=60s
+LimitNOFILE=65536
+LimitNPROC=32768
 
 [Install]
 WantedBy=multi-user.target
+Alias=3proxy.service
 EOF
 
     # Reload systemd and enable the service to start on boot
