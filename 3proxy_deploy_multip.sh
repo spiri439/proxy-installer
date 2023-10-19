@@ -69,8 +69,8 @@ After=network.target
 
 [Service]
 Environment=CONFIGFILE=/etc/3proxy/3proxy-$ip.cfg
-ExecStart=/bin/3proxy ${CONFIGFILE}
-ExecReload=/bin/kill -SIGUSR1 $MAINPID
+ExecStart=/bin/3proxy \${CONFIGFILE}
+ExecReload=/bin/kill -SIGUSR1 \$MAINPID
 KillMode=process
 Restart=on-failure
 RestartSec=60s
