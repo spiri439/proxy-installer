@@ -85,7 +85,19 @@ done
 cat <<EOF > /etc/3proxy/allowed_ips.list
 allow * 46.101.103.209
 allow * 46.101.22.222
-# ... [rest of the IPs]
+allow * 176.124.104.234
+allow * 176.124.104.250
+allow * 82.78.126.222
+allow * 92.85.160.202
+allow * 95.76.142.136
+allow * 78.97.158.136
+allow * 85.204.12.12
+allow * 95.76.141.135
+allow * 84.117.17.0
+allow * 85.204.15.116
+allow * 85.204.13.87
+allow * 84.117.64.43
+allow * 84.117.17.90
 EOF
 
 echo "3proxy setup completed for all IPs."
