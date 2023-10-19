@@ -34,13 +34,10 @@ cd 3proxy-0.9.4/
 make -f Makefile.Linux
 make -f Makefile.Linux install
 
-# Ask for the number of IPs
-read -p "How many IPs do you want to configure for 3proxy? " ip_count
+# Automatically get all the IPs from local interfaces
+ips=$(ip -o -4 addr show | awk '{print $4}' | cut -d "/" -f 1 | grep -v "127.0.0.1")
 
-for i in $(seq 1 $ip_count); do
-    # Ask for each IP
-    read -p "Enter IP #$i: " ip
-
+for ip in $ips; do
     # Generate 3proxy configuration for each IP
     cat <<EOF > /etc/3proxy/3proxy-$ip.cfg
 daemon
