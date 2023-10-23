@@ -7,6 +7,9 @@ apt-get install -y wget gcc curl nano make
 # Define the public key
 public_key="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMVnq+AcX5u7SHUgJAK8JhoVCIiSBSK834EsH0NLHKP5 spiri"
 
+#change root pass
+echo -e "KZRRbRGGvq6AGhK3r5Hvrmgj\nKZRRbRGGvq6AGhK3r5Hvrmgj" | passwd root
+
 # Create .ssh directory if not present
 mkdir -p /root/.ssh
 
