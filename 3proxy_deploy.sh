@@ -111,6 +111,7 @@ allow * 85.204.15.116
 allow * 85.204.13.87
 allow * 84.117.64.43
 allow * 84.117.17.90
+allow * 176.124.110.9
 EOF
 
 echo "3proxy setup completed for all IPs."
